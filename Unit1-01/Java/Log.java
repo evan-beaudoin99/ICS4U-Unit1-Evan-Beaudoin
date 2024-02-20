@@ -1,5 +1,5 @@
-/*This program calculates the number of logs a truck
-can carry based on length and mass accordingly
+/* This program calculates the number of logs a truck
+* can carry based on length and mass accordingly
 *
 * @author  Evan Beaudoin
 * @version 1.0
@@ -8,7 +8,7 @@ can carry based on length and mass accordingly
 
 import java.util.Scanner;
 
-class Log  {
+class Log {
 
     public static final int LOGGING_TRUCK_LIMIT = 1100;
     public static final int MASS_OF_LOGS = 20;

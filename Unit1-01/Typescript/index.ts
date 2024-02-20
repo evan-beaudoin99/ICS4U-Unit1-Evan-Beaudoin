@@ -18,21 +18,21 @@ console.log(`\nEnter the length of the logs that you would like to move with a t
 
 
 try {
-    if (isNaN(Number(lengthOfLog.value))) {
-        throw new Error('Invalid input. Please enter a valid number for the length of logs.')
-      }
- let massOfLogs = 20 * Number(lengthOfLog.value)
+  if (isNaN(Number(lengthOfLog.value))) {
+    throw new Error('Invalid input. Please enter a valid number for the length of logs.')
+  }
+  let massOfLogs = 20 * Number(lengthOfLog.value)
 
   if (massOfLogs === 0) {
-         throw new Error('Calculation error. Mass of logs cannot be zero.')
-    }
+    throw new Error('Calculation error. Mass of logs cannot be zero.')
+  }
 
   let numberOfLogs = loggingTruckLimit / massOfLogs
 
   console.log(`The number of logs that can be moved with a truck is ${String(numberOfLogs)}`)
- } catch (error) {
-     console.error(`Error: ${error.message}`)
- }
+} catch (error) {
+  console.error(`Error: ${error.message}`)
+}
 
 console.log('\nDone.')
 
