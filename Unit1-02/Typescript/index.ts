@@ -9,7 +9,7 @@
 import { createPrompt } from 'bun-promptx'
 
 // variables
-const speedOfLight = 299792458;
+const speedOfLight = 299792458
  
 // input
 const massString = createPrompt("Enter the mass of an object (kg): ")
