@@ -22,7 +22,7 @@ if (isNaN(mass) == true || mass < 0) {
   // process
   const energy = mass * Math.pow(speedOfLight, 2)
   // output
-  console.log(`${mass} kg would produce ${energy.toExponential(10)} J of energy.`)
+  console.log(`${mass} kg would produce ${energy.toExponential(6)} J of energy.`)
 }
  
 console.log("\nDone.")
