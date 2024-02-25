@@ -8,7 +8,7 @@ import java.util.Scanner;
 * Maple logs are cut into lengths of either 0.25 m, 0.5 m, or 1 m.
 * Maple logs weigh 20 kg/m, and a logging truck can carry 1100 kg.
 *
-* @author  Kenny Le
+* @author  Evan Beaudoin
 * @version 1.0
 * @since   2024-02-018
 */
