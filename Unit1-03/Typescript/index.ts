@@ -17,9 +17,9 @@ let cookTimes: { [key: string]: number } = {
 
 // input
 var itemString = createPrompt("Enter the food you want to heat: ")
-var amountString = createPrompt("Enter the quantity of food you want to heat: ")
+var amountString = createPrompt("Enter the quantity of food you want to heat (max 3): ")
 
-var item = itemString.value ?? ""
+var item = itemString.value?.toLowerCase() ?? ""
 var amount = parseInt(amountString.value || "-1")
 
 
@@ -37,7 +37,7 @@ if (item in cookTimes && (amount > 0 && amount <= 3 )) {
     var minutes = Math.floor(cookTime / 60)
     var seconds = cookTime % 60
 
-    console.log("Cook time is " + minutes + " minutes and " + seconds + " seconds.")
+    console.log("Cook time is " + minutes + " minute(s) and " + seconds + " seconds.")
 }
 else {
   console.log("\nInvalid Input")
