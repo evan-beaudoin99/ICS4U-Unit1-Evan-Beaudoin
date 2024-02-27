@@ -1,36 +1,94 @@
+/*
+* This is the microwave problem
+*
+* @author  Evan Beaudoin
+* @version 1.0
+* @since   2024-02-26
+*/
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Microwave {
+/**
+* Program calculates microwave cook time.
+*/
+final class Microwave {
+
+    /**
+     * Time required to cook a pizza (in minutes).
+     */
+    public static final int PIZZA_TIME = 45;
+
+    /**
+     * Time required to cook soup (in minutes).
+     */
+    public static final int SOUP_TIME = 105;
+
+    /**
+     * Time required to prepare a sub sandwich (in minutes).
+     */
+    public static final int SUB_TIME = 60;
+    /**
+     * Max number.
+     */
+    public static final int MAX = 3;
+    /**
+     * Min Number.
+     */
+    public static final int MIN = 0;
+    /**
+     * 60 seconds is equal to one minute.
+     */
+    public static final int MINUTE = 60;
+
+    /**
+    * Prevent instantiation.
+    * Throw an exception IllegalStateException
+    * if this is ever called.
+    *
+    * @throws IllegalStateException if this is ever called
+    */
+
+    private Microwave() {
+        throw new IllegalStateException("Cannot be instantiated");
+    }
+    /**
+    * The starting main() function.
+    *
+    * @param args No args will be used
+    */
+
     public static void main(String[] args) {
         // variables
-        Map<String, Integer> cookTimes = new HashMap<String, Integer>();
-        cookTimes.put("pizza", 45);
-        cookTimes.put("soup", 105);
-        cookTimes.put("sub", 60);
+        final Map<String, Integer> cookTimes = new HashMap<String, Integer>();
+        cookTimes.put("pizza", PIZZA_TIME);
+        cookTimes.put("soup", SOUP_TIME);
+        cookTimes.put("sub", SUB_TIME);
 
         // input
-        Scanner scanner = new Scanner(System.in);
+        final Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the food you want to heat: ");
-        String item = scanner.nextLine();
+        final String item = scanner.nextLine();
         System.out.print("Enter the quantity of food you want to heat: ");
-        int amount = scanner.nextInt();
-        double increaseMultiplier = 1;
+        final int amount = scanner.nextInt();
+        final int increaseMultiplier = 1;
 
         // process
-        if (cookTimes.containsKey(item) && (amount > 0 && amount <= 3)) {
+        if (cookTimes.containsKey(item) && amount > MIN && amount <= MAX) {
             if (amount == 2) {
-                increaseMultiplier = 1.5;
-            } else if (amount == 3) {
-                increaseMultiplier = 2;
+                final double increaseMultiplier = 1.5;
+            } else if (amount == MAX) {
+                final int increaseMultiplier = 2;
             }
 
-            double totalTime = (int) (cookTimes.get(item) * increaseMultiplier);
-            double minutes = Math.floor(totalTime) / 60;
-            double seconds = totalTime % 60;
+            final double totalTime = cookTimes.get(item) * increaseMultiplier;
+            final int minutes = (int) Math.floor(totalTime) / MINUTE;
+            final double seconds = totalTime % MINUTE;
 
-            System.out.println("Cook time is " + minutes + " minutes and " + seconds + " seconds.");
+            System.out.printf("Time is %d minutes and"
+                          + "%.1f seconds.", minutes, seconds);
+
         } else {
             System.out.println("\nInvalid Input");
         }
