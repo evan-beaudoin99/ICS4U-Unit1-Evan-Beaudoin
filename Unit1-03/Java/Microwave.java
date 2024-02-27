@@ -41,6 +41,10 @@ final class Microwave {
      * 60 seconds is equal to one minute.
      */
     public static final int MINUTE = 60;
+    /**
+     * Multiplier for a quantity of 2.
+     */
+    public static final double TWO_QUANTITY_MULTIPLIER = 1.5;
 
     /**
     * Prevent instantiation.
@@ -72,21 +76,21 @@ final class Microwave {
         final String item = scanner.nextLine();
         System.out.print("Enter the quantity of food you want to heat: ");
         final int amount = scanner.nextInt();
-        final int increaseMultiplier = 1;
+        double increaseMultiplier = 1;
 
         // process
         if (cookTimes.containsKey(item) && amount > MIN && amount <= MAX) {
             if (amount == 2) {
-                final double increaseMultiplier = 1.5;
+                increaseMultiplier = TWO_QUANTITY_MULTIPLIER;
             } else if (amount == MAX) {
-                final int increaseMultiplier = 2;
+                increaseMultiplier = 2;
             }
 
             final double totalTime = cookTimes.get(item) * increaseMultiplier;
             final int minutes = (int) Math.floor(totalTime) / MINUTE;
             final double seconds = totalTime % MINUTE;
 
-            System.out.printf("Time is %d minutes and"
+            System.out.printf("\nTime is %d minutes and "
                           + "%.1f seconds.", minutes, seconds);
 
         } else {
