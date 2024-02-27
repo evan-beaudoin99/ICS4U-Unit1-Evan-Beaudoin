@@ -10,9 +10,9 @@
 
 import { createPrompt } from 'bun-promptx'
 
-const min = 1;
-const max = 6;
-const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+const min = 1
+const max = 6
+const randomNumber = Math.floor(Math.random() * (max - min + 1) + min)
 
 var guessString = createPrompt('Pick a number between 1 and 6: ')
 var guess = parseInt(guessString.value || "-1")
@@ -23,7 +23,7 @@ if (isNaN(guess) == true  && guess > 1 && guess < 6) {
 }
 else {
   
- let tries = 0
+  let tries = 0
   
   while (guess != randomNumber) {
     
@@ -38,8 +38,8 @@ else {
     var guessString = createPrompt('\nGuess again: ')
     var guess = parseInt(guessString.value || "-1")
     
-   tries++
- }
+    tries++
+  }
   console.log("\nYou are correct!")
   console.log("\nThe number was " + randomNumber)
   console.log("\nYou got it in " + tries + " tries!")
