@@ -9,7 +9,10 @@
 import { createPrompt } from 'bun-promptx'
 
 // variables
+<<<<<<< HEAD
 //let cookTimes: { [key: string] number } = 
+=======
+>>>>>>> e0056fc7bef7d57eecd1f5716c7f3afb5293791f
 let cookTimes = {
   "pizza": 45,
   "soup": 105,
@@ -18,9 +21,9 @@ let cookTimes = {
 
 // input
 var itemString = createPrompt("Enter the food you want to heat: ")
-var amountString = createPrompt("Enter the quantity of food you want to heat: ")
+var amountString = createPrompt("Enter the quantity of food you want to heat (max 3): ")
 
-var item = itemString.value ?? ""
+var item = itemString.value?.toLowerCase() ?? ""
 var amount = parseInt(amountString.value || "-1")
 
 
@@ -38,7 +41,11 @@ if (item in cookTimes && (amount > 0 && amount <= 3 )) {
   var minutes = Math.floor(cookTime / 60)
   var seconds = cookTime % 60
 
+<<<<<<< HEAD
   console.log("Cook time is " + minutes + " minutes and " + seconds + " seconds.")
+=======
+  console.log("Cook time is " + minutes + " minute(s) and " + seconds + " seconds.")
+>>>>>>> e0056fc7bef7d57eecd1f5716c7f3afb5293791f
 }
 else {
   console.log("\nInvalid Input")
