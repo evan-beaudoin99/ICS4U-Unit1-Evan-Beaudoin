@@ -1,5 +1,4 @@
 /**
-
  * This program is the dice game
  *
  * By: Evan Beaudoin
@@ -10,20 +9,20 @@
 
 import { createPrompt } from 'bun-promptx'
 
-const min = 1
-const max = 6
-const randomNumber = Math.floor(Math.random() * (max - min + 1) + min)
+const min = 1;
+const max = 6;
+const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 
 var guessString = createPrompt('Pick a number between 1 and 6: ')
 var guess = parseInt(guessString.value || "-1")
 
 
-if (isNaN(guess) == true  && guess > 1 && guess < 6) {
+if (isNaN(guess) == true || guess < min || guess > max) {
   console.log("Invalid Input")
 }
 else {
   
-  let tries = 0
+  let tries = 1
   
   while (guess != randomNumber) {
     
@@ -41,8 +40,7 @@ else {
     tries++
   }
   console.log("\nYou are correct!")
-  console.log("\nThe number was " + randomNumber)
   console.log("\nYou got it in " + tries + " tries!")
 }
-console.log('Done.')
+console.log('\nDone.')
 
