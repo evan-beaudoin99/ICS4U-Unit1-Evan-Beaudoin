@@ -61,7 +61,6 @@ final class DiceGame {
                 }
 
                 System.out.println("\nYou are correct!");
-                System.out.println("\nThe number was " + randomNumber);
                 System.out.println("\nGot it in " + (tries + 1) + " tries!");
             }
         } catch (NumberFormatException error) {
