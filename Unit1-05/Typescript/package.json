@@ -7,5 +7,9 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^4.1.0",
+    "bun-promptx": "^0.2.0"
   }
 }
