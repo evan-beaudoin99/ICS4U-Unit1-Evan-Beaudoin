@@ -37,6 +37,7 @@ final class DiceGame {
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
+<<<<<<< HEAD
         try {
             final Random random = new Random();
             final int randomNumber = random.nextInt(6) + 1;
@@ -73,3 +74,41 @@ final class DiceGame {
 
     }
 }
+=======
+        final Random random = new Random();
+
+        final int randomNumber = random.nextInt(6) + 1;
+        int tries = 0;
+
+        while (true) {
+            System.out.print("\nEnter your guess: ");
+            final String input = scanner.nextLine();
+            tries++;
+
+            try {
+                final int guess = Integer.parseInt(input);
+
+                if (guess < 1 || guess > MAX_NUMBER) {
+                    System.out.println("Number must be between 1 and 6!");
+                    continue;
+                }
+
+                if (guess == randomNumber) {
+                    System.out.println("You guessedcorrect!");
+                    break;
+                } else if (guess < randomNumber) {
+                    System.out.println("Your guess is too low. ");
+                } else {
+                    System.out.println("Your guess is too high.");
+                }
+            } catch (NumberFormatException error) {
+                System.out.println("Invalid Input.");
+            }
+        }
+
+        System.out.println("It took you " + tries + " tries.");
+        scanner.close();
+    }
+}
+
+>>>>>>> 0aae044365984b4b5a3c59ecace3bf51fe97b5c0
