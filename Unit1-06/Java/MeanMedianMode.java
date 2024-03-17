@@ -6,6 +6,7 @@
 * @since   2024-03-17
 */
 
+/*
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +14,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+*/
+
+import java.io.*;
+import java.util.*;
 
 /**
 * This is the program.
@@ -65,6 +74,21 @@ final class MeanMedianMode {
         }
         return median;
     }
+    public static int findMode(final int[] list) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : list) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        int mode = -1;
+        int maxFrequency = 0;
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxFrequency) {
+                mode = entry.getKey();
+                maxFrequency = entry.getValue();
+            }
+        }
+        return mode;
+    }
 
     /**
     * The starting main() function.
@@ -72,6 +96,12 @@ final class MeanMedianMode {
     * @param args No args will be used
     */
     public static void main(final String[] args) {
+
+        if (args.length == 0) {
+            System.out.println("No file name provided.");
+            return;
+        }
+
         // Check if input is valid
         try {
             // Find number of lines in the file
@@ -92,12 +122,13 @@ final class MeanMedianMode {
                 array[counter++] = scanner.nextInt();
             }
             // Find mean and mode
-            System.out.println("Current array: "
-                             + Arrays.toString(array) + "\n");
+            System.out.println("Calaculating...");
             final double mean = findMean(array);
             final double median = findMedian(array);
+            final double mode = findMode(array); 
             System.out.println("The mean is " + mean);
             System.out.println("The median is " + median);
+            System.out.println("The mode is " + mode);
             // Close scanner
             scanner.close();
         } catch (NumberFormatException nfe) {
