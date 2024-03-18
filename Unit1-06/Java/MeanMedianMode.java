@@ -122,7 +122,7 @@ final class MeanMedianMode {
                 array[counter++] = scanner.nextInt();
             }
             // Find mean and mode
-            System.out.println("Calaculating...");
+            System.out.println("Calculating...");
             final double mean = findMean(array);
             final double median = findMedian(array);
             final double mode = findMode(array); 
