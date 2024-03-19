@@ -6,22 +6,15 @@
 * @since   2024-03-17
 */
 
-/*
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.HashMap;
-*/
-
-import java.io.*;
-import java.util.*;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
 * This is the program.
@@ -74,8 +67,15 @@ final class MeanMedianMode {
         }
         return median;
     }
+
+    /**
+    * Finds the median of a list.
+    *
+    * @param list of numbers
+    * @return median of the list
+    */
     public static int findMode(final int[] list) {
-        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        final Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : list) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
@@ -125,7 +125,7 @@ final class MeanMedianMode {
             System.out.println("Calculating...");
             final double mean = findMean(array);
             final double median = findMedian(array);
-            final double mode = findMode(array); 
+            final double mode = findMode(array);
             System.out.println("The mean is " + mean);
             System.out.println("The median is " + median);
             System.out.println("The mode is " + mode);
