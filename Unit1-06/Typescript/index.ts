@@ -19,7 +19,7 @@ function findMean(list) {
     }
     sumOfNumbers = sumOfNumbers + list[counter]
   }
-  const mean = sumOfNumbers / (list.length - 1)
+  const mean = sumOfNumbers / (list.length)
   return mean
 }
 
@@ -60,7 +60,8 @@ function findMode(list) {
 let array = readFileSync(process.argv[2], 'utf8').toString().split("\n")
 array = array.map((str) => parseInt(str, 10)) // Convert string to int
 
-let arrayLength = array.length - 2
+let arrayLength = array.length - 1
+array.splice(arrayLength, 1)
 
 // Error check
 let errorOccured = false
@@ -69,12 +70,13 @@ for (let counter = 0; counter < arrayLength; counter++) {
   if (isNaN(array[counter]) == true) {
     console.log('Array contains a NaN value.')
     errorOccured = true
-    break
+    continue
   }
 }
 
 if (errorOccured == false) {
   // Find mean, median, and mode
+  console.log(`Current array: ${array}\n`)
   console.log(`Calculating...`)
   const mean = findMean(array)
   const median = findMedian(array)
