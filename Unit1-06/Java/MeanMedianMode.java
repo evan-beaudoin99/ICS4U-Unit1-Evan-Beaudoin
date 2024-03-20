@@ -96,12 +96,6 @@ final class MeanMedianMode {
     * @param args No args will be used
     */
     public static void main(final String[] args) {
-
-        if (args.length == 0) {
-            System.out.println("No file name provided.");
-            return;
-        }
-
         // Check if input is valid
         try {
             // Find number of lines in the file
